@@ -1,7 +1,8 @@
+<?php $start_time = microtime(true); // ДОДАНО: Початок вимірювання часу (Пункт 4) ?>
 <?php include "common.php"; ?>
 
 <?php
-// Обробка форми
+// Обробка форми (залишаємо без змін)
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $name = trim($_POST['name'] ?? '');
     $message = trim($_POST['message'] ?? '');
@@ -14,7 +15,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $feedback = "Будь ласка, заповніть усі поля.";
     }
 } else {
-    $feedback = "Немає даних для обробки.";
+    // ВИПРАВЛЕНО: При завантаженні сторінки повідомлення має бути порожнім, щоб не відображати "Немає даних для обробки."
+    $feedback = ""; 
 }
 ?>
 
@@ -25,12 +27,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Контакти / Про автора</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page="page5.php">
+
 <div class="container">
 
-    <!-- Блок 1 (шапка + X + меню) -->
     <div class="header">
-        <div class="x"><?php echo $x; ?></div>
+        <div class="x data-editable" id="content_x"><?php echo $x; ?></div>
         <div class="menu">
             <ul>
                 <?php foreach($menu as $link => $title): ?>
@@ -40,27 +42,35 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 
-    <!-- Блок 2: Про автора -->
-    <div class="left"><?php echo $texts[0]; ?></div>
+    <div class="left data-editable" id="content_t0"><?php echo $texts[0]; ?></div>
 
-    <!-- Блок 3: Форма -->
     <div class="main">
         <?php echo $feedback; ?>
-        <?php echo $texts[1]; ?>
+        <div class="form-content data-editable" id="content_t1"><?php echo $texts[1]; ?></div>
     </div>
 
-    <!-- Блок 4: Соцмережі -->
-    <div class="right-top"><?php echo $texts[2]; ?></div>
+    <div class="right-top data-editable" id="content_t2"><?php echo $texts[2]; ?></div>
 
-    <!-- Блок 5: Слоган -->
-    <div class="right-bottom"><?php echo $texts[3]; ?></div>
+    <div class="right-bottom data-editable" id="content_t3"><?php echo $texts[3]; ?></div>
 
-    <!-- Блок 6: Футер + Y -->
     <div class="footer">
-        <div class="y"><?php echo $y; ?></div>
-        <div><?php echo $texts[4] ?? ""; ?></div>
+        <div class="y data-editable" id="content_y"><?php echo $y; ?></div>
+        <div class="footer-text data-editable" id="content_t4"><?php echo $texts[4] ?? ""; ?></div>
     </div>
 
 </div>
+
+<script src="script.js"></script>
+
+<?php
+// Обчислення часу (Пункт 4)
+$end_time = microtime(true);
+$execution_time = $end_time - $start_time;
+?>
+
+<div class="time-info">
+    Час формування сторінки: <?php echo round($execution_time, 4); ?> сек.
+</div>
+
 </body>
 </html>
