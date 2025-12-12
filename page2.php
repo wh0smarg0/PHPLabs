@@ -6,7 +6,10 @@
     <title>Сторінка 2</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page="page2.php">
+
+<script src="script.js"></script>
+
 <div class="container">
 
     <!-- Блок 1 (шапка + X + меню) -->
