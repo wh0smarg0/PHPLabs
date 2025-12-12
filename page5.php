@@ -25,7 +25,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>Контакти / Про автора</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page="page5.php">
+
+<script src="script.js"></script>
+
 <div class="container">
 
     <!-- Блок 1 (шапка + X + меню) -->
