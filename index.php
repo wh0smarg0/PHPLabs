@@ -6,7 +6,7 @@
     <title>Головна</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body data-page="index.php">
 <div class="container">
 
     <!-- Блок 1 (шапка + X) -->
@@ -40,5 +40,8 @@
     </div>
 
 </div>
+
+<script src="script.js"></script>
+
 </body>
 </html>
