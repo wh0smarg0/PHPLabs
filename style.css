@@ -1,0 +1,296 @@
+/* Загальні стилі */
+body {
+    margin: 0;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: #1e1e1e; /* трохи темніший фон для контрасту */
+    color: #eaeaea;
+    line-height: 1.6;
+}
+
+/* Контейнер-сітка */
+.container {
+    display: grid;
+    grid-template-areas:
+        "header header header"
+        "left main right-top"
+        "left main right-bottom"
+        "left footer footer";
+    grid-template-columns: 1fr 2fr 1fr;
+    grid-template-rows: auto 1fr 1fr auto;
+    min-height: 100vh;
+    gap: 15px;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+/* Усі блоки */
+.container > div {
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+}
+
+/* Шапка */
+.header {
+    grid-area: header;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #1e3799, #0c2461);
+    color: #f1f1f1;
+    padding: 15px 20px;
+}
+
+/* X */
+.x {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* Меню */
+.menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 25px;
+}
+.menu a {
+    text-decoration: none;
+    color: #f1f1f1;
+    font-weight: 600;
+    transition: color 0.3s, border-bottom 0.3s;
+    padding-bottom: 3px;
+}
+.menu a:hover {
+    color: #feca57;
+    border-bottom: 2px solid #feca57;
+}
+
+/* Ліва колонка */
+.left {
+    grid-area: left;
+    background: #2f2f2f;
+    color: #f1f1f1;
+}
+.left h3 {
+    margin-top: 0;
+    color: #feca57;
+}
+.left ul li {
+    margin-bottom: 8px;
+}
+
+/* Центральний блок */
+.main {
+    grid-area: main;
+    background: #333;
+    color: #f1f1f1;
+    padding: 25px;
+    border: 1px solid rgba(255,255,255,0.1);
+    overflow-wrap: break-word;
+}
+.main h2 {
+    color: #feca57;
+    margin-top: 0;
+}
+.main p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+.main img {
+    border-radius: 12px;
+    margin-top: 15px;
+    max-width: 100%;
+    height: auto;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+.main img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.8);
+}
+
+/* Правий верхній блок */
+.right-top {
+    grid-area: right-top;
+    background: #6a1b9a;
+    color: #fff;
+    padding: 20px;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Правий нижній блок */
+.right-bottom {
+    grid-area: right-bottom;
+    background: #b33939;
+    color: #fff;
+    padding: 20px;
+    font-weight: 500;
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Футер */
+.footer {
+    grid-area: footer;
+    background: linear-gradient(135deg, #006266, #0a3d62);
+    color: #f1f1f1;
+    text-align: center;
+    font-size: 14px;
+    padding: 15px;
+    border-top: 2px solid rgba(255,255,255,0.1);
+}
+
+/* Y */
+.y {
+    display: inline-block;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 6px 12px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+/* Додатково: стилізація посилань всередині контенту */
+a {
+    color: #feca57;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+/* Підсвітка блоків при наведенні */
+.container > div:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.8);
+    transition: all 0.3s;
+}
+
+/* Міні-таблиці */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+    font-size: 16px;
+    color: #f1f1f1;
+    background: #2f2f2f;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.6);
+}
+
+table th, table td {
+    padding: 10px 12px;
+    text-align: center;
+    border-bottom: 1px solid #444;
+}
+
+table th {
+    background: #6a1b9a; /* темно-фіолетовий заголовок */
+    color: #feca57;       /* жовті заголовки */
+    font-weight: 600;
+}
+
+table tr:nth-child(even) td {
+    background: #3d3d3d;  /* темніший фон для парних рядків */
+}
+
+table tr:nth-child(odd) td {
+    background: #444;      /* трохи світліший для непарних */
+}
+
+table tr:hover td {
+    background: #5a2a9e;  /* підсвітка при наведенні */
+    color: #fff;
+    transition: 0.3s;
+}
+
+h3 {
+    color: #feca57;
+    margin-bottom: 10px;
+}
+
+/* --- СТИЛІ ДЛЯ IN-PLACE EDITING (ПРАКТИКУМ №3) --- */
+
+.data-editable {
+    cursor: pointer;
+    position: relative; 
+    transition: background-color 0.2s;
+}
+.data-editable:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+    outline: 2px dashed #feca57;
+}
+
+.edit-form {
+    padding: 0;
+    margin: -20px; 
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+    background: #3c3c3c;
+    display: flex;
+    flex-direction: column;
+}
+.edit-form textarea {
+    width: 100%;
+    min-height: 100px; 
+    padding: 10px;
+    box-sizing: border-box;
+    border: none;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 14px;
+    background: #252525;
+    color: #f1f1f1;
+    border-radius: 12px 12px 0 0;
+}
+
+.edit-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    padding: 10px;
+    background: #333;
+    border-radius: 0 0 12px 12px;
+}
+.save-btn { /* Синя кнопка */
+    background: #1e3799; 
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+.cancel-btn { /* Червона кнопка */
+    background: #b33939; 
+    color: #fff;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* Стиль для відображення часу (Пункт 4) */
+.time-info {
+    position:fixed; 
+    bottom: 10px; 
+    right: 10px; 
+    padding: 5px 10px; 
+    background: rgba(0,0,0,0.8); 
+    border: 1px solid #feca57; 
+    color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 1000;
+}
